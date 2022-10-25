@@ -4,7 +4,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import {
   MDBContainer,
   MDBTabs,
@@ -14,8 +14,8 @@ import {
   MDBTabsPane,
   MDBBtn,
   MDBIcon,
-  MDBInput,
-  MDBCheckbox,
+  // MDBInput,
+  // MDBCheckbox,
 } from "mdb-react-ui-kit";
 
 const Login = () => {
@@ -40,9 +40,20 @@ const Login = () => {
   const { providerLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -175,12 +186,11 @@ const Login = () => {
                 <ButtonGroup vertical>
                   <Button
                     onClick={handleGoogleSignIn}
-                    className="mb-2"
+                    // className="mb-2"
                     variant="outline-primary"
                   >
                     <MDBIcon fab icon="google" size="sm" />
                   </Button>
-                  {/* <Button variant="outline-dark"></Button> */}
                 </ButtonGroup>
               </MDBBtn>
 
@@ -190,7 +200,9 @@ const Login = () => {
                 className="m-1"
                 style={{ color: "#1266f1" }}
               >
-                <MDBIcon fab icon="github" size="sm" />
+                <Button onClick={handleGithubSignIn} variant="outline-dark">
+                  <MDBIcon fab icon="github" size="sm" />
+                </Button>
               </MDBBtn>
             </div>
 
@@ -263,7 +275,16 @@ const Login = () => {
                 className="m-1"
                 style={{ color: "#1266f1" }}
               >
-                <MDBIcon fab icon="facebook-f" size="sm" />
+                <ButtonGroup vertical>
+                  <Button
+                    onClick={handleGoogleSignIn}
+                    className="mb-2"
+                    variant="outline-primary"
+                  >
+                    <MDBIcon fab icon="google" size="sm" />
+                  </Button>
+                  {/* <Button variant="outline-dark"></Button> */}
+                </ButtonGroup>
               </MDBBtn>
 
               <MDBBtn
@@ -272,25 +293,9 @@ const Login = () => {
                 className="m-1"
                 style={{ color: "#1266f1" }}
               >
-                <MDBIcon fab icon="twitter" size="sm" />
-              </MDBBtn>
-
-              <MDBBtn
-                tag="a"
-                color="none"
-                className="m-1"
-                style={{ color: "#1266f1" }}
-              >
-                <MDBIcon fab icon="google" size="sm" />
-              </MDBBtn>
-
-              <MDBBtn
-                tag="a"
-                color="none"
-                className="m-1"
-                style={{ color: "#1266f1" }}
-              >
-                <MDBIcon fab icon="github" size="sm" />
+                <Button onClick={handleGithubSignIn} variant="outline-dark">
+                  <MDBIcon fab icon="github" size="sm" />
+                </Button>
               </MDBBtn>
             </div>
 
