@@ -33,7 +33,7 @@ const Login = () => {
 
   const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -87,6 +87,7 @@ const Login = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, email, password);
@@ -96,11 +97,22 @@ const Login = () => {
         console.log(user);
         setError("");
         form.reset();
+        handleUpdateUserProfile(name, photoURL);
       })
       .catch((e) => {
         console.error(e);
         setError(e.message);
       });
+  };
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -329,7 +341,22 @@ const Login = () => {
           <Form onSubmit={handleSignupSubmit}>
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
-              <Form.Control name="name" type="text" placeholder="Enter name" />
+              <Form.Control
+                name="name"
+                type="text"
+                placeholder="Enter name"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Photo URL</Form.Label>
+              <Form.Control
+                name="photoURL"
+                type="text"
+                placeholder="Photo URL"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
