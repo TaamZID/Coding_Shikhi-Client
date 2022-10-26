@@ -12,7 +12,7 @@ const Category = () => {
   const ref = createRef();
   return (
     <div>
-      <div className="header">
+      <div className="header border mb-4">
         <h3>Course Details</h3>
         <Pdf targetRef={ref} filename="Course-Details.pdf">
           {({ toPdf }) => (
@@ -22,13 +22,15 @@ const Category = () => {
           )}
         </Pdf>
       </div>
-      <div ref={ref} class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
           <div class="card">
-            <img src={courses.image} class="card-img-top" alt="Skyscrapers" />
-            <div class="card-body">
-              <h5 class="card-title">{courses.name}</h5>
-              <p class="card-text">{courses.details}</p>
+            <div ref={ref}>
+              <img src={courses.image} class="card-img-top" alt="Skyscrapers" />
+              <div class="card-body">
+                <h5 class="card-title">{courses.name}</h5>
+                <p class="card-text">{courses.details}</p>
+              </div>
             </div>
             <div class="card-footer">
               <MDBBtn className="text-dark" color="light">

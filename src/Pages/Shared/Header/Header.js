@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import { FaUser } from "react-icons/fa";
+import { FaBars, FaHamburger, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import image from "./images/coding_shikhi.png";
 
@@ -28,7 +28,9 @@ const Header = () => {
         <Image src={image} style={{ height: 40, width: 40 }}></Image>
         &nbsp;&nbsp;
         <Link to="/">Coding Shikhi</Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle aria-controls="responsive-navbar-nav">
+          <FaBars></FaBars>
+        </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link to="courses">Courses</Link>

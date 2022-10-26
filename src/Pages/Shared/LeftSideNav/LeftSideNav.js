@@ -13,7 +13,7 @@ const LeftSideNav = () => {
   return (
     <div>
       <ul class="list-group list-group-light">
-        <h3>Categories : {courses.length}</h3>
+        <h3 className="mb-4">Categories : {courses.length}</h3>
         <div>
           {courses.map((course) => (
             <li
