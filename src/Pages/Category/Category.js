@@ -1,8 +1,11 @@
 import React, { createRef } from "react";
+import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import "./Category.css";
 import Pdf from "react-to-pdf";
+import Button from "react-bootstrap/Button";
+import { MDBBtn } from "mdb-react-ui-kit";
 
 const Category = () => {
   const courses = useLoaderData();
@@ -11,10 +14,13 @@ const Category = () => {
     <div>
       <div className="header">
         <h3>Course Details</h3>
-        <Pdf targetRef={ref} filename="code-example.pdf">
-          {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+        <Pdf targetRef={ref} filename="Course-Details.pdf">
+          {({ toPdf }) => (
+            <Button onClick={toPdf}>
+              <FaDownload></FaDownload>
+            </Button>
+          )}
         </Pdf>
-        <FaDownload></FaDownload>
       </div>
       <div ref={ref} class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
@@ -25,7 +31,9 @@ const Category = () => {
               <p class="card-text">{courses.details}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <MDBBtn className="text-dark" color="light">
+                <Link to={`/checkout`}>See Details</Link>
+              </MDBBtn>
             </div>
           </div>
         </div>

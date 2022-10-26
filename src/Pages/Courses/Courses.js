@@ -28,14 +28,14 @@ const Courses = () => {
                   src={course.image}
                   class="card-img-top"
                   alt="Skyscrapers"
-                  style={{height:200}}
+                  style={{ height: 200 }}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{course.name}</h5>
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
+                    {course.details.length > 100
+                      ? course.details.slice(0, 100) + "..."
+                      : course.details}
                   </p>
                 </div>
                 <div className="card-footer">
