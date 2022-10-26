@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
-import { FaBars, FaHamburger, FaUser } from "react-icons/fa";
+import { FaBars, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import image from "./images/coding_shikhi.png";
+import DarkModeToggle from "react-dark-mode-toggle";
+import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isDarkMode, setIsDarkMode] = useState(() => false);
 
   const handleLogOut = () => {
     logOut()
@@ -37,6 +40,12 @@ const Header = () => {
             <Link href="#blog">Blog</Link>
             <Link href="#faq">FAQ</Link>
           </Nav>
+          <DarkModeToggle
+            onChange={setIsDarkMode}
+            checked={isDarkMode}
+            size={40}
+          />
+
           <Nav>
             <Nav.Link href="#deets">
               {user?.uid ? (
