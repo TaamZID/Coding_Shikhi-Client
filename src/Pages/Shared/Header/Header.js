@@ -13,6 +13,15 @@ import "./Header.css";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDarkMode, setIsDarkMode] = useState(() => false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
 
   const handleLogOut = () => {
     logOut()
@@ -50,7 +59,9 @@ const Header = () => {
             <Nav.Link href="#deets">
               {user?.uid ? (
                 <>
-                  <span>{user?.displayName}</span>
+                  {/* <span>{user?.displayName}</span> */}
+                  {isHovering && <span>{user?.displayName}</span>}
+                  &nbsp;
                   <>
                     <Button variant="light" onClick={handleLogOut}>
                       Logout
@@ -66,11 +77,15 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               {user?.photoURL ? (
-                <Image
-                  style={{ height: "30px" }}
-                  roundedCircle
-                  src={user?.photoURL}
-                ></Image>
+                <div>
+                  <Image
+                    style={{ height: "30px" }}
+                    roundedCircle
+                    src={user?.photoURL}
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}
+                  ></Image>
+                </div>
               ) : (
                 <FaUser></FaUser>
               )}
