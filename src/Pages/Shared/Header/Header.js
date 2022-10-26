@@ -60,7 +60,11 @@ const Header = () => {
               {user?.uid ? (
                 <>
                   {/* <span>{user?.displayName}</span> */}
-                  {isHovering && <span>{user?.displayName}</span>}
+                  {user?.displayName ? (
+                    <>{isHovering && <span>{user?.displayName}</span>}</>
+                  ) : (
+                    <>{isHovering && <span>Name Null</span>}</>
+                  )}
                   &nbsp;
                   <>
                     <Button variant="light" onClick={handleLogOut}>
@@ -87,7 +91,10 @@ const Header = () => {
                   ></Image>
                 </div>
               ) : (
-                <FaUser></FaUser>
+                <FaUser
+                  onMouseOver={handleMouseOver}
+                  onMouseOut={handleMouseOut}
+                ></FaUser>
               )}
             </Nav.Link>
           </Nav>
