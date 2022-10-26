@@ -1,6 +1,6 @@
 # Coding Shikhi
 
-## Available Scripts
+## Live Link
 
 In the project directory, you can run:
 
