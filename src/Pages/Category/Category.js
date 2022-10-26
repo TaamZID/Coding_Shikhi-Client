@@ -32,7 +32,7 @@ const Category = () => {
             </div>
             <div class="card-footer">
               <MDBBtn className="text-dark" color="light">
-                <Link to={`/checkout`}>See Details</Link>
+                <Link to={`/checkout/${courses.id}`}>Get premium Access</Link>
               </MDBBtn>
             </div>
           </div>
