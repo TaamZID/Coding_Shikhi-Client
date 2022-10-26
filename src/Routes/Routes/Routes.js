@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import CoursesMain from "../../layout/CoursesMain";
 import Main from "../../layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Category from "../../Pages/Category/Category";
 import Checkout from "../../Pages/Checkout/Checkout";
 import CourseID from "../../Pages/CourseID/CourseID";
 import Courses from "../../Pages/Courses/Courses";
+import Faq from "../../Pages/Faq/Faq";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Signup from "../../Pages/Login/Signup/Signup";
@@ -26,6 +28,14 @@ export const routes = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
     ],
   },
@@ -58,5 +68,9 @@ export const routes = createBrowserRouter([
           fetch(`http://localhost:5000/courses/${params.id}`),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <div className="text-center">404 PAGE NOT FOUND!</div>,
   },
 ]);

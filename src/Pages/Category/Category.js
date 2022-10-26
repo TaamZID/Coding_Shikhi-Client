@@ -13,7 +13,7 @@ const Category = () => {
   return (
     <div>
       <div className="header border mb-4">
-        <h3>Course Details</h3>
+        <h3 className="text-success fw-200">Course Details</h3>
         <Pdf targetRef={ref} filename="Course-Details.pdf">
           {({ toPdf }) => (
             <Button onClick={toPdf}>
@@ -34,7 +34,9 @@ const Category = () => {
             </div>
             <div class="card-footer">
               <MDBBtn className="text-dark" color="light">
-                <Link to={`/checkout/${courses.id}`}>Get premium Access</Link>
+                <Link className="link" to={`/checkout/${courses.id}`}>
+                  Get premium Access
+                </Link>
               </MDBBtn>
             </div>
           </div>

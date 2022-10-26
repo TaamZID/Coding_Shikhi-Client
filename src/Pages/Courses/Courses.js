@@ -7,6 +7,7 @@ import { Button, CardGroup, Image } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { MDBBtn } from "mdb-react-ui-kit";
+import { MDBTypography } from "mdb-react-ui-kit";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -18,7 +19,12 @@ const Courses = () => {
   }, []);
   return (
     <div>
-      <h3>Courses</h3>
+      <MDBTypography
+        tag="h3"
+        className="text-center mb-4 pb-2 text-info fw-bold"
+      >
+        Courses
+      </MDBTypography>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {courses.map((course) => (
           <div>
@@ -40,7 +46,9 @@ const Courses = () => {
                 </div>
                 <div className="card-footer">
                   <MDBBtn className="text-dark" color="light">
-                    <Link to={`category/${course.id}`}>See Details</Link>
+                    <Link className="link" to={`category/${course.id}`}>
+                      See Details
+                    </Link>
                   </MDBBtn>
                 </div>
               </div>

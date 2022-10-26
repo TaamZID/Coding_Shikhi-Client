@@ -11,7 +11,7 @@ const Checkout = () => {
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col">
                 <p>
-                  <span class="h2">Checkout Cart </span>
+                  <span class="h2 text-success fw-200">Checkout Cart </span>
                 </p>
 
                 <div class="card mb-4">
@@ -72,7 +72,9 @@ const Checkout = () => {
 
                 <div class="d-flex justify-content-end">
                   <button type="button" class="btn btn-light btn-lg me-2">
-                    <Link to="/courses">Continue shopping</Link>
+                    <Link className="link" to="/courses">
+                      Continue shopping
+                    </Link>
                   </button>
                   <button type="button" class="btn btn-primary btn-lg">
                     Buy Now

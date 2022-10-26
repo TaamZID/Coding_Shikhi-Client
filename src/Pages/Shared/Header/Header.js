@@ -39,15 +39,26 @@ const Header = () => {
       <Container>
         <Image src={image} style={{ height: 40, width: 40 }}></Image>
         &nbsp;&nbsp;
-        <Link to="/">Coding Shikhi</Link>
+        <Link className="link fs-4" to="/">
+          Coding Shikhi
+        </Link>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <Navbar.Toggle aria-controls="responsive-navbar-nav">
           <FaBars></FaBars>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="courses">Courses</Link>
-            <Link href="#blog">Blog</Link>
-            <Link href="#faq">FAQ</Link>
+            <Link className="link" to="courses">
+              Courses
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Link className="link" to="/blog">
+              Blog
+            </Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Link className="link" to="/faq">
+              FAQ
+            </Link>
           </Nav>
           <DarkModeToggle
             onChange={setIsDarkMode}
@@ -74,7 +85,9 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/login">Login</Link>
+                  <Link className="link" to="/login">
+                    Login
+                  </Link>
                   {/* <Link to="/signup">Signup</Link> */}
                 </>
               )}
