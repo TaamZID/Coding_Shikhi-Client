@@ -13,4 +13,7 @@
 ## Technologies Used 
 - React Library.
 - React Router.
+- React Bootstrap.
+- React Icons.
+- Firebase & Vercel.
 
