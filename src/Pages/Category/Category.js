@@ -7,13 +7,14 @@ import Pdf from "react-to-pdf";
 import Button from "react-bootstrap/Button";
 import { MDBBtn } from "mdb-react-ui-kit";
 
+
 const Category = () => {
   const courses = useLoaderData();
   const ref = createRef();
   return (
     <div>
       <div className="header border mb-4">
-        <h3 className="text-success fw-200">Course Details</h3>
+        <h3 className="text-secondary fw-200">Course Details</h3>
         <Pdf targetRef={ref} filename="Course-Details.pdf">
           {({ toPdf }) => (
             <Button onClick={toPdf}>

@@ -8,7 +8,7 @@ const LeftSideNav = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://coding-shikhi-server-taamzid.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
@@ -17,7 +17,7 @@ const LeftSideNav = () => {
       <ul class="list-group list-group-light">
         <MDBTypography
           tag="h3"
-          className="text-center mb-4 pb-2 text-success fw-200 fs-4"
+          className="text-center mb-4 pb-2 text-secondary fw-200 fs-4"
         >
           Categories : {courses.length}
         </MDBTypography>

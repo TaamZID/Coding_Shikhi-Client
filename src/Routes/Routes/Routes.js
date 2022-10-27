@@ -55,7 +55,9 @@ export const routes = createBrowserRouter([
         path: "courses/category/:id",
         element: <Category></Category>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://coding-shikhi-server-taamzid.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
@@ -65,7 +67,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://coding-shikhi-server-taamzid.vercel.app/courses/${params.id}`
+          ),
       },
     ],
   },

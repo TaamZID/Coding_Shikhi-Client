@@ -47,7 +47,7 @@ const Header = () => {
           <FaBars></FaBars>
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto text-center">
             <Link className="link" to="courses">
               Courses
             </Link>
@@ -66,7 +66,7 @@ const Header = () => {
             size={40}
           />
 
-          <Nav>
+          <Nav className="text-center">
             <Nav.Link href="#deets">
               {user?.uid ? (
                 <>
