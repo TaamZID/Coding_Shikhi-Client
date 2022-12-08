@@ -7,7 +7,7 @@
 - After logging in anyone can buy courses. 
 - User must login to checkout courses.
 - User can download course details as pdf.
-- Blog & FAQ Sections.
+- Blog & FAQ Sections..
 
 
 ## Technologies Used 
